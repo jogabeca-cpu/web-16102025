@@ -1,0 +1,708 @@
+<!-- FOOTER COMPONENT -->
+<!-- Este archivo debe ser incluido en todas las páginas -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__container">
+            <div class="footer__container--left">
+                <a class="footer__container--left--logo" href="index.html" alt="XXX Hospitality Group">
+                    <div class="footer__container__logo">
+                        <!-- Logo placeholder - reemplazar con tu logo -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="48" viewBox="0 0 120 48">
+                            <g data-name="Group 3" transform="translate(7.837 8.916)">
+                                <path class="color-logo" data-name="Path 44" d="M15.613,29.618,26.821.116h4.111l11.9,29.5h-4.4l-3.38-8.936H22.827l-3.159,8.936ZM23.951,17.5h9.9l-3.02-8.17q-1.4-3.763-2.054-6.118A37.273,37.273,0,0,1,27.183,8.85Z" transform="translate(-14.45 -0.031)" fill="#2c5aa0"/>
+                                <path class="color-logo" data-name="Path 45" d="M46.712,29.618V26L61.582,7.1A45.671,45.671,0,0,1,64.6,3.6H48.38V.116H69.194V3.6L52.9,24.064l-1.764,2.073H69.677v3.482Z" transform="translate(-17.556 -0.031)" fill="#2c5aa0"/>
+                                <path class="color-logo" data-name="Path 46" d="M95.764.116h3.844V17.161a20.855,20.855,0,0,1-1,7.033,8.268,8.268,0,0,1-3.646,4.337,12.881,12.881,0,0,1-6.726,1.59q-5.746,0-8.608-2.858t-2.862-10.1V.116h3.844V17.141a16.224,16.224,0,0,0,.749,5.8,5.4,5.4,0,0,0,2.454,2.727,8.5,8.5,0,0,0,4.146.936q4.109,0,5.959-1.932t1.849-7.526Z" transform="translate(-20.557 -0.031)" fill="#2c5aa0"/>
+                                <path class="color-logo" data-name="Path 47" d="M109.07,29.618V.116h3.844V26.137h14.31v3.482Z" transform="translate(-23.783 -0.031)" fill="#2c5aa0"/>
+                                <rect class="rectangle" transform="translate(-7.837 -8.916)" fill="none" stroke="#2c5aa0" stroke-width="2" pathLength="1" width="120" height="48"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <span class="hidden">XXX Hospitality Group</span>
+                </a>
+                
+                <!-- Social Media Links -->
+                <ul class="social-media list-inline">
+                    <li>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Facebook" class="facebook social-link" data-platform="facebook">
+                            <svg width="15" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 30">
+                                <path d="M.862 10.061h3.016V7.129c0-1.292.033-3.286.971-4.52C5.839 1.302 7.197.413 9.531.413c3.805 0 5.408.542 5.408.542l-.754 4.468s-1.258-.364-2.43-.364c-1.174 0-2.225.42-2.225 1.593v3.407h4.811l-.336 4.364H9.53v15.161H3.878V14.425H.862v-4.364z" fill-rule="nonzero"/>
+                            </svg>
+                            <span class="hidden">Facebook</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Instagram" class="instagram social-link" data-platform="instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30">
+                                <path fill-rule="nonzero" d="M21.377199 0H9.709834C7.27873614-1e-8 4.94722384.96581603 3.22826873 2.68495249 1.50931361 4.40408895.54374353 6.73570311.544 9.16680097V20.833199C.544 25.8942788 4.6468203 30 9.709834 30h11.6663981c5.0620467 0 9.1668009-4.1057212 9.1668009-9.166801V9.165834C30.544 4.10282031 26.4392458 0 21.377199 0zm6.6662369 20.833199c-.003731 3.6806485-2.9865554 6.6634729-6.6672038 6.6672039H9.709834c-3.68086917-.0031989-6.66400496-2.9863347-6.66720386-6.6672039V9.165834C3.04636116 5.48518553 6.02918553 2.50236116 9.709834 2.49863014h11.6663981c3.6806484.00373102 6.6634728 2.98655539 6.6672038 6.66720386v11.667365zM15.5435165 7.49975826c-4.1413388.00160093-7.49815731 3.35841944-7.49975824 7.49975824.00160054 4.1414955 3.35826304 7.4985908 7.49975824 7.5007252 4.1420939-.0010675 7.4996577-3.3586313 7.5007252-7.5007252-.0010677-4.1419373-3.3587877-7.49922449-7.5007252-7.49975824zm0 12.50088634c-2.7613868-.000534-4.9995501-2.2394188-4.9991941-5.0008056.000356-2.7613869 2.2390965-4.9996945 5.0004833-4.9995166 2.7613869.000178 4.9998389 2.2387742 4.9998389 5.0001611-.004261 2.7601232-2.2410041 4.9964338-5.0011281 5.0001611zm7.8333602-11.16744557c.9206823 0 1.6670427-.74636044 1.6670427-1.6670427 0-.92068227-.7463604-1.66704271-1.6670427-1.66704271-.9206823 0-1.6670427.74636044-1.6670427 1.66704271 0 .92068226.7463604 1.6670427 1.6670427 1.6670427z"/>
+                            </svg>
+                            <span class="hidden">Instagram</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" class="linkedin social-link" data-platform="linkedin">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31">
+                                <path fill-rule="nonzero" d="M31.3952486 18.4200635v11.6070239h-6.7290183V19.197432c0-2.7204976-.97328-4.577131-3.4089615-4.577131-1.859334 0-2.965825 1.2512348-3.452611 2.4615939-.1775173.4326987-.2232106 1.0349584-.2232106 1.640649v11.3045435h-6.731281s.0906565-18.3418816 0-20.2422373h6.7306241v2.8692561c-.0136495.0214598-.0313867.0445983-.0442334.0654011h.0442334v-.0654011c.8942293-1.3772926 2.4912287-3.34480123 6.0658099-3.34480123 4.4286647-.000073 7.7486484 2.89312463 7.7486484 9.11075853zM3.80895956.02708738C1.50619705.02708738 0 1.53751798 0 3.52378569c0 1.94298324 1.46262062 3.49925304 3.71961693 3.49925304h.04496329c2.34736083 0 3.80720775-1.55597782 3.80720775-3.49925304C7.5275546 1.53751798 6.11194105.02708738 3.80895956.02708738zM.39977908 30.0270874h6.72872637V9.7848501H.39977908v20.2422373z"/>
+                            </svg>
+                            <span class="hidden">LinkedIn</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Contact Information -->
+                <div class="footer__contact-info">
+                    <address class="footer__address">
+                        <a href="https://maps.google.com/?q=XXX+Street+XXX+Suite+XXX+City+State+XXXXX" target="_blank" rel="noopener">
+                            XXX Street XXX, Suite XXX,<br>
+                            City, State XXXXX
+                        </a>
+                    </address>
+                    
+                    <div class="footer__contact-details">
+                        <a href="tel:XXX-XXX-XXXX" class="footer__phone">(XXX) XXX-XXXX</a>
+                        <a href="mailto:XXX@XXX.com" class="footer__email">XXX@XXX.com</a>
+                    </div>
+                    
+                    <!-- Business Hours -->
+                    <div class="footer__hours">
+                        <strong>Business Hours:</strong><br>
+                        Monday - Friday: 9:00 AM - 6:00 PM<br>
+                        Saturday - Sunday: Closed
+                    </div>
+                </div>
+                
+                <!-- Secondary Navigation -->
+                <nav id="secondary-nav" class="secondary-navigation" role="navigation" aria-label="Secondary Menu">
+                    <ul id="secondary-navigation" class="secondary-navigation__list">
+                        <li class='secondary-navigation__item secondary-nav-1'>
+                            <a href='portfolio.html' class='secondary-nav-link'>Case Studies</a>
+                        </li>
+                        <li class='secondary-navigation__item secondary-nav-2'>
+                            <a href='#' class='secondary-nav-link'>News & Press</a>
+                        </li>
+                        <li class='secondary-navigation__item secondary-nav-4'>
+                            <a href='contact-us.html' class='secondary-nav-link'>Contact Us</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- Newsletter Section -->
+            <div class="footer__container--right">
+                <h2 class="title-white newsletter-title">LET'S GET <span>TO WORK</span></h2>
+                <p class="newsletter-description">Stay updated with our latest insights, case studies, and industry news.</p>
+                    
+                    <!-- Success Message -->
+                    <p class="thankyouMsg" style="display:none;">
+                        Thank you for subscribing! You'll receive our latest updates soon.
+                    </p>
+                    
+                    <!-- Newsletter Form -->
+                    <form id="email-signup" class="email-signup" action="" method="POST" novalidate>
+                        <!-- Hidden Fields -->
+                        <input type="hidden" name="_token" value="">
+                        <input type="hidden" value="custom_form_process" name="operation" />
+                        <input type="hidden" name="sendto" value="XXX@XXX.com">
+                        <input type="hidden" name="subject" value="Newsletter Subscription">
+                        
+                        <!-- Spam Protection -->
+                        <label for="email-signup-texNickname" class="hidden" aria-hidden="true">Hidden Field</label>
+                        <input type="text" id="email-signup-texNickname" name="tex_nickname" value="" tabindex="-1" autocomplete="off" style="position: absolute; left: -9999px; opacity: 0;">
+                        
+                        <div class="fields-wrap">
+                            <div class="field input">
+                                <div class="modern-input-wrapper">
+                                    <input type="text" id="email-signup_FNAME" name="FNAME" class="modern-input required" required aria-required="true">
+                                    <label for="email-signup_FNAME" class="modern-label">First Name</label>
+                                    <div class="input-underline"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="field input">
+                                <div class="modern-input-wrapper">
+                                    <input type="text" id="email-signup_LNAME" name="LNAME" class="modern-input required" required aria-required="true">
+                                    <label for="email-signup_LNAME" class="modern-label">Last Name</label>
+                                    <div class="input-underline"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="field input">
+                                <div class="modern-input-wrapper">
+                                    <input type="email" id="email-signup_email_address" name="email_address" class="modern-input required" required aria-required="true">
+                                    <label for="email-signup_email_address" class="modern-label">Email</label>
+                                    <div class="input-underline"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="field input">
+                                <div class="modern-input-wrapper">
+                                    <input type="tel" id="email-signup_phone_number" name="phone_number" class="modern-input">
+                                    <label for="email-signup_phone_number" class="modern-label">Phone Number (Optional)</label>
+                                    <div class="input-underline"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- GDPR Compliance -->
+                            <div class="gdpr-wrap" role="group" aria-labelledby="gdpr-checkboxes-signup">
+                                <span id="gdpr-checkboxes-signup" class="hidden">Privacy Policy agreement</span>
+                                
+                                <div class="field gdpr clearfix">
+                                    <input class="required" type="checkbox" id="privacy_terms-signup" name="i_agree" value="y" required aria-required="true">
+                                    <label for="privacy_terms-signup">
+                                        I have read and agree to the <a href='/privacy-policy' target='_blank' rel="noopener">Privacy Policy</a>.
+                                    </label>
+                                </div>
+                                
+                                <div class="field gdpr clearfix">
+                                    <input type="checkbox" name="subscribe" id="yes-signup-newsletter" class="required" value="y" checked>
+                                    <label for="yes-signup-newsletter">
+                                        Yes, I would like to receive emails with exclusive insights, case studies, and industry updates.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="signup-btn" aria-describedby="signup-status">
+                            <span class="button-text">SUBMIT</span>
+                            <span class="button-loader" style="display: none;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                                </svg>
+                            </span>
+                        </button>
+                        
+                        <!-- Status Message -->
+                        <div id="signup-status" aria-live="polite" aria-atomic="true"></div>
+                    </form>
+                    
+                    <!-- Response Container -->
+                    <div id="response-signup" style="display:none;" role="alert"></div>
+                </div>
+            </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer__bottom">
+            <div class="footer__bottom--left">
+                <p class="copyright">© <span id="current-year"></span> XXX Hospitality. All Rights Reserved.</p>
+            </div>
+            
+            <div class="footer__bottom--center">
+                <nav id="third-nav" class="tertiary-navigation" role="navigation" aria-label="Legal Menu">
+                    <ul id="tertiary-navigation" class="tertiary-navigation__list">
+                        <li class='tertiary-navigation__item tertiary-nav-1'>
+                            <a href='#' class='tertiary-nav-link'>Accessibility</a>
+                        </li>
+                        <li class='tertiary-navigation__item tertiary-nav-2'>
+                            <a href='#' class='tertiary-nav-link'>Privacy Policy</a>
+                        </li>
+                        <li class='tertiary-navigation__item tertiary-nav-3'>
+                            <a href='#' class='tertiary-nav-link'>Terms of Service</a>
+                        </li>
+                        <li class='tertiary-navigation__item tertiary-nav-4'>
+                            <a href='#' class='tertiary-nav-link'>Sitemap</a>
+                        </li>
+                        <li class="tertiary-navigation__item">
+                            <a href="#" onclick="window.displayPreferenceModal && window.displayPreferenceModal(); return false;" id="termly-consent-preferences">Cookie Preferences</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="footer__bottom--right">
+                <a class="design-credit" aria-label="Website Design Credit" href="#" target="_blank" rel="noopener">
+                    <span class="hidden">Website Design by</span>
+                    <svg width="100" height="20" viewBox="0 0 100 20" fill="currentColor">
+                        <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" fill="currentColor">
+                            Design by XXX
+                        </text>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ESTILOS MEJORADOS -->
+<style>
+/* Additional footer styles */
+.footer__contact-info {
+    margin: 20px 0;
+}
+
+.footer__address {
+    font-style: normal;
+    margin-bottom: 15px;
+}
+
+.footer__address a {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer__address a:hover {
+    color: #2c5aa0;
+}
+
+.footer__contact-details {
+    margin-bottom: 15px;
+}
+
+.footer__phone,
+.footer__email {
+    display: block;
+    color: #ccc;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.footer__phone:hover,
+.footer__email:hover {
+    color: #2c5aa0;
+}
+
+.footer__hours {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.newsletter-description {
+    color: #ccc;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+/* Estilos modernos solo para los inputs */
+.modern-input-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.modern-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 15px 0 8px 0;
+    font-size: 16px;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.modern-input:focus {
+    border-bottom-color: #2c5aa0;
+}
+
+.modern-input:focus + .modern-label,
+.modern-input:not(:placeholder-shown) + .modern-label,
+.modern-input:valid + .modern-label {
+    transform: translateY(-25px) scale(0.85);
+    color: #ffffff;
+}
+
+.modern-label {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    transform-origin: left top;
+}
+
+.input-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #2c5aa0, #4a90e2);
+    transition: width 0.3s ease;
+}
+
+.modern-input:focus ~ .input-underline {
+    width: 100%;
+}
+
+.signup-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.button-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-loader svg {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.social-link {
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+}
+
+#current-year {
+    font-weight: normal;
+}
+
+.button-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-loader svg {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Resto de estilos del footer */
+.footer__contact-info {
+    margin: 20px 0;
+}
+
+.footer__address {
+    font-style: normal;
+    margin-bottom: 15px;
+}
+
+.footer__address a {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer__address a:hover {
+    color: #2c5aa0;
+}
+
+.footer__contact-details {
+    margin-bottom: 15px;
+}
+
+.footer__phone,
+.footer__email {
+    display: block;
+    color: #ccc;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.footer__phone:hover,
+.footer__email:hover {
+    color: #2c5aa0;
+}
+
+.footer__hours {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    list-style: none;
+    padding: 0;
+}
+
+.social-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+}
+
+.social-link svg {
+    fill: #ccc;
+    transition: fill 0.3s ease;
+}
+
+.social-link:hover svg {
+    fill: #2c5aa0;
+}
+
+.secondary-navigation__list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.secondary-navigation__item {
+    margin-bottom: 10px;
+}
+
+.secondary-nav-link {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.secondary-nav-link:hover {
+    color: #2c5aa0;
+}
+
+.footer__bottom {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    gap: 20px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tertiary-navigation__list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+
+.tertiary-nav-link {
+    color: #999;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.tertiary-nav-link:hover {
+    color: #2c5aa0;
+}
+
+.copyright {
+    color: #999;
+    font-size: 14px;
+    margin: 0;
+}
+
+.design-credit {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.design-credit:hover {
+    color: #2c5aa0;
+}
+
+/* Estados de error y éxito */
+.form-error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #f5c6cb;
+    font-size: 14px;
+}
+
+.form-success {
+    background: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #c3e6cb;
+    font-size: 14px;
+}
+
+.thankyouMsg {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Utility classes */
+.hidden {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .footer__container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer__bottom {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .tertiary-navigation__list {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .social-media {
+        justify-content: center;
+    }
+    
+    .modern-input-wrapper {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modern-label {
+        font-size: 14px;
+    }
+    
+    .modern-input {
+        font-size: 14px;
+    }
+}
+</style>
+
+<!-- Footer JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Set current year
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = currentYear;
+    }
+    
+    // Mejorar la experiencia de los inputs modernos
+    const modernInputs = document.querySelectorAll('.modern-input');
+    modernInputs.forEach(input => {
+        // Manejar el placeholder de manera dinámica
+        input.addEventListener('focus', function() {
+            this.setAttribute('data-focused', 'true');
+        });
+        
+        input.addEventListener('blur', function() {
+            this.removeAttribute('data-focused');
+        });
+        
+        // Validación en tiempo real
+        input.addEventListener('input', function() {
+            if (this.hasAttribute('required')) {
+                if (this.value.trim() === '') {
+                    this.style.borderBottomColor = 'rgba(255, 107, 107, 0.8)';
+                } else {
+                    this.style.borderBottomColor = 'rgba(76, 175, 80, 0.8)';
+                }
+            }
+        });
+    });
+    
+    // Newsletter form handling
+    const form = document.getElementById('email-signup');
+    const submitBtn = document.querySelector('.signup-btn');
+    const buttonText = submitBtn.querySelector('.button-text');
+    const buttonLoader = submitBtn.querySelector('.button-loader');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Mostrar loader
+            buttonText.style.display = 'none';
+            buttonLoader.style.display = 'block';
+            submitBtn.disabled = true;
+            
+            // Simular envío (reemplazar con lógica real)
+            setTimeout(() => {
+                // Ocultar loader
+                buttonText.style.display = 'block';
+                buttonLoader.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                // Mostrar mensaje de éxito
+                const thankyouMsg = document.querySelector('.thankyouMsg');
+                if (thankyouMsg) {
+                    thankyouMsg.style.display = 'block';
+                    form.style.display = 'none';
+                }
+            }, 2000);
+        });
+    }
+    
+    // Social media click tracking
+    const socialLinks = document.querySelectorAll('.social-link');
+    socialLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const platform = this.getAttribute('data-platform');
+            
+            // Analytics tracking
+            if (typeof gtag === 'function') {
+                gtag('event', 'social_click', {
+                    platform: platform,
+                    location: 'footer'
+                });
+            }
+            
+            console.log(`Social media click: ${platform}`);
+        });
+    });
+    
+    // Footer navigation click tracking
+    const footerLinks = document.querySelectorAll('.secondary-nav-link, .tertiary-nav-link');
+    footerLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const linkText = this.textContent.trim();
+            
+            // Analytics tracking
+            if (typeof gtag === 'function') {
+                gtag('event', 'footer_navigation', {
+                    link_text: linkText,
+                    link_url: this.href
+                });
+            }
+        });
+    });
+    
+    // Smooth scroll for internal links
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    internalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
+            if (target) {
+                e.preventDefault();
+                const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 100;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+</script>

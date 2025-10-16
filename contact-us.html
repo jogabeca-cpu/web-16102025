@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <script>var responsive = true;</script>
+    <title>Contact Us | XXX Hospitality</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="description" content="Get in touch with XXX Hospitality. Contact our team for hotel management services, partnerships, or career opportunities." />
+    <link rel="canonical" href="#">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:regular,italic,500,600,700,700italic|Oswald:300,regular,500&display=swap">
+    
+    <!-- Local CSS -->
+    <link rel="stylesheet" media="screen" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" media="screen" type="text/css" href="assets/css/custom.css" />
+    
+    <!-- Local JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+
+<body id="contact-us" class="xxx-hospitality-group">
+    <!-- Contenedor para el header -->
+    <div id="header-container"></div>
+    
+    <div id="start-content">
+        <!-- MAIN CONTENT -->
+        <main id="content">
+            <!-- PAGE HEADER -->
+            <section class="page-header">
+                <div class="container">
+                    <h1 class="page-title">Contact <span>Us</span></h1>
+                    <p class="page-subtitle">Let's start a conversation about your hospitality needs</p>
+                </div>
+            </section>
+
+            <!-- CONTACT INFO -->
+            <section class="contact-info">
+                <div class="container">
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <!-- Phone icon -->
+                                </svg>
+                            </div>
+                            <h3>Phone</h3>
+                            <p><a href="tel:XXX-XXX-XXXX">(XXX) XXX-XXXX</a></p>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <!-- Email icon -->
+                                </svg>
+                            </div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:XXX@XXX.com">XXX@XXX.com</a></p>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <!-- Location icon -->
+                                </svg>
+                            </div>
+                            <h3>Office</h3>
+                            <p>XXX Street XXX, Suite XXX<br>City, State XXXXX</p>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <!-- Hours icon -->
+                                </svg>
+                            </div>
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday - Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACT FORM SECTION -->
+            <section id="contact-form-section" class="contact-form-section">
+                <div class="container">
+                    <div class="form-container">
+                        <div class="form-intro">
+                            <h2>Get in <span>Touch</span></h2>
+                            <p>Ready to elevate your hotel's performance? Our team is here to discuss your specific needs and how we can help achieve your goals.</p>
+                        </div>
+                        
+                        <div class="contact-form">
+                            <p id='success-msg' class='form-module__confirmation' style='display:none'>
+                                Thank you for your interest! Someone from our team will be in contact with you shortly.
+                            </p>
+                            
+                            <form id="main_contact_form" action="" method="POST" class="form-module">
+                                <div class="form-row">
+                                    <div class='form-module__field input col-6'>
+                                        <label for="first_name">First Name *</label>
+                                        <input id="first_name" name='first_name' type='text' placeholder='First Name' required>
+                                    </div>
+                                    
+                                    <div class='form-module__field input col-6'>
+                                        <label for="last_name">Last Name *</label>
+                                        <input id="last_name" name='last_name' type='text' placeholder='Last Name' required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class='form-module__field email col-6'>
+                                        <label for="email_address">Email Address *</label>
+                                        <input id="email_address" name='email_address' type='email' placeholder='Email Address' required>
+                                    </div>
+                                    
+                                    <div class='form-module__field input col-6'>
+                                        <label for="phone_number">Phone Number</label>
+                                        <input id="phone_number" name='phone_number' type='tel' placeholder='Phone Number'>
+                                    </div>
+                                </div>
+                                
+                                <div class='form-module__field input col-12'>
+                                    <label for="company_name">Company Name</label>
+                                    <input id="company_name" name='company_name' type='text' placeholder='Company Name'>
+                                </div>
+                                
+                                <div class='form-module__field select col-12'>
+                                    <label for="inquiry_type">Type of Inquiry *</label>
+                                    <select id="inquiry_type" name='inquiry_type' required>
+                                        <option value="">Select Inquiry Type</option>
+                                        <option value="hotel_management">Hotel Management Services</option>
+                                        <option value="new_development">New Development Project</option>
+                                        <option value="asset_repositioning">Asset Repositioning</option>
+                                        <option value="partnership">Partnership Opportunity</option>
+                                        <option value="careers">Career Opportunities</option>
+                                        <option value="media">Media Inquiry</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class='form-module__field checkbox col-12'>
+                                    <div class='form-module__field--label'>Services Interested In:</div>
+                                    <div class="checkbox-grid">
+                                        <div class='form-module__field--unit'>
+                                            <input type='checkbox' id="service_lifestyle" name='interested_services[]' value='lifestyle_hotels' />
+                                            <label for="service_lifestyle">Lifestyle Hotels</label>
+                                        </div>
+                                        <div class='form-module__field--unit'>
+                                            <input type='checkbox' id="service_marketing" name='interested_services[]' value='strategic_marketing' />
+                                            <label for="service_marketing">Strategic Marketing</label>
+                                        </div>
+                                        <div class='form-module__field--unit'>
+                                            <input type='checkbox' id="service_development" name='interested_services[]' value='new_development' />
+                                            <label for="service_development">New Development</label>
+                                        </div>
+                                        <div class='form-module__field--unit'>
+                                            <input type='checkbox' id="service_fnb" name='interested_services[]' value='food_beverage' />
+                                            <label for="service_fnb">Food & Beverage</label>
+                                        </div>
+                                        <div class='form-module__field--unit'>
+                                            <input type='checkbox' id="service_revenue" name='interested_services[]' value='revenue_optimization' />
+                                            <label for="service_revenue">Revenue Optimization</label>
+                                        </div>
+                                        <div class='form-module__field--unit'>
+                                            <input type='checkbox' id="service_repositioning" name='interested_services[]' value='asset_repositioning' />
+                                            <label for="service_repositioning">Asset Repositioning</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class='form-module__field col-12'>
+                                    <label for="message">Message *</label>
+                                    <textarea id="message" name='message' rows="5" placeholder='Tell us about your project, goals, or questions...' required></textarea>
+                                </div>
+                                
+                                <div class='form-module__field select col-12'>
+                                    <label for="timeline">Project Timeline</label>
+                                    <select id="timeline" name='timeline'>
+                                        <option value="">Select Timeline</option>
+                                        <option value="immediate">Im    mediate (0-3 months)</option>
+                                        <option value="short_term">Short Term (3-6 months)</option>
+                                        <option value="medium_term">Medium Term (6-12 months)</option>
+                                        <option value="long_term">Long Term (12+ months)</option>
+                                        <option value="planning">Still in Planning Phase</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="gdpr-wrap">
+                                    <div class="field gdpr clearfix">
+                                        <input class="required" type="checkbox" id="privacy_agreement" name="i_agree" value="y" required>
+                                        <label for="privacy_agreement">I have read and agree to the <a target='_blank' href='/privacy-policy'>Privacy Policy</a>. *</label>
+                                    </div>
+                                    <div class="field gdpr clearfix">
+                                        <input type="checkbox" id="marketing_consent" name="marketing_consent" value="y">
+                                        <label for="marketing_consent">Yes, I would like to receive emails with industry insights, company updates, and exclusive offers.</label>
+                                    </div>
+                                </div>
+                                
+                                <div class='form-module__submit'>
+                                    <button class='btn btn-large' type='submit'>
+                                        <span>Send Message</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MAP SECTION -->
+            <section class="map-section">
+                <div class="container">
+                    <h2 class="section-title">Our <span>Location</span></h2>
+                </div>
+                <div class="map-container">
+                    <!-- Map placeholder - replace with actual map integration -->
+                    <div class="map-placeholder">
+                        <p>Interactive map will be displayed here</p>
+                        <p>XXX Street XXX, Suite XXX<br>City, State XXXXX</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- QUICK CONTACT OPTIONS -->
+            <section class="quick-contact">
+                <div class="container">
+                    <h2 class="section-title">Quick <span>Contact</span></h2>
+                    
+                    <div class="quick-contact-grid">
+                        <div class="quick-contact-item">
+                            <h3>General Inquiries</h3>
+                            <p>For general questions about our services and capabilities.</p>
+                            <a href="mailto:XXX@XXX.com" class="btn">Email Us</a>
+                        </div>
+
+                        <div class="quick-contact-item">
+                            <h3>New Business</h3>
+                            <p>Ready to discuss a new project or partnership opportunity?</p>
+                            <a href="mailto:XXX@XXX.com" class="btn">Get Started</a>
+                        </div>
+
+                        <div class="quick-contact-item">
+                            <h3>Media & Press</h3>
+                            <p>Media inquiries and press-related questions.</p>
+                            <a href="mailto:XXX@XXX.com" class="btn">Media Contact</a>
+                        </div>
+
+                        <div class="quick-contact-item">
+                            <h3>Careers</h3>
+                            <p>Interested in joining our team? Explore opportunities.</p>
+                            <a href="careers.html" class="btn">View Careers</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ SECTION -->
+            <section class="faq-section">
+                <div class="container">
+                    <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+                    
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <h3 class="faq-question">What types of properties do you manage?</h3>
+                            <div class="faq-answer">
+                                <p>We specialize in lifestyle hotels, boutique properties, destination resorts, and unique hospitality concepts. Our portfolio includes properties ranging from XXX to XXX rooms across various markets.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">How long does it typically take to see results?</h3>
+                            <div class="faq-answer">
+                                <p>Results vary depending on the property and services provided, but clients typically see measurable improvements in performance within the first 3-6 months of our management.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">Do you work with properties outside of California?</h3>
+                            <div class="faq-answer">
+                                <p>While we're based in Southern California, we work with properties throughout the region and selectively take on projects in other markets that align with our expertise and capabilities.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">What is your approach to revenue optimization?</h3>
+                            <div class="faq-answer">
+                                <p>Our revenue optimization strategy combines data-driven pricing, strategic marketing, operational efficiency improvements, and enhanced guest experiences to maximize both ADR and occupancy rates.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">How do you handle new development projects?</h3>
+                            <div class="faq-answer">
+                                <p>We provide comprehensive development services from initial feasibility studies through grand opening and beyond, including concept development, project management, pre-opening planning, and ongoing operations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Contenedor para el footer -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts originales -->
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/forms.js"></script>
+    <script src="assets/js/custom.js"></script>
+    
+    <!-- Script para cargar componentes -->
+    <script src="assets/js/component-loader.js"></script>
+</body>
+</html>
