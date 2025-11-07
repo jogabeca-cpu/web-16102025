@@ -1,0 +1,811 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <script>var responsive = true;</script>
+    <title>Portfolio | XXX Hospitality</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="description" content="Explore our portfolio of successful hospitality projects and hotel management achievements." />
+    <link rel="canonical" href="#">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:regular,italic,500,600,700,700italic|Oswald:300,regular,500&display=swap">
+    
+    <!-- Local CSS -->
+    <link rel="stylesheet" media="screen" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" media="screen" type="text/css" href="assets/css/custom.css" />
+    
+    <!-- Local JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <style>
+        /* Portfolio Specific Styles */
+        .portfolio-section {
+            padding: 100px 0 60px 0;
+            background: #f8f9fa;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+
+        .card-image-wrapper {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-card:hover .card-image {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            color: #2c5aa0;
+            margin-bottom: 10px;
+        }
+
+        .card-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .card-category {
+            display: inline-block;
+            background: #2c5aa0;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 900px;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            animation: modalSlideIn 0.3s;
+            margin: 20px;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+            background: rgba(0,0,0,0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            border: none;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            background: #2c5aa0;
+        }
+    
+        .modal-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .modal-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 32px;
+            color: #2c5aa0;
+            margin-bottom: 10px;
+        }
+
+        .modal-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .modal-description {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .modal-link {
+            display: inline-block;
+            background: #2c5aa0;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            transition: background 0.3s;
+            text-transform: uppercase;
+        }
+
+        .modal-link:hover {
+            background: #1e3d6f;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-portfolio h1 {
+                font-size: 32px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+
+            .modal-title {
+                font-size: 24px;
+            }
+
+            .modal-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body id="portfolio" class="xxx-hospitality-group">
+    <!-- HEADER COMPONENT -->
+    <header id="header" class="header">
+        <div class="header__menu container">
+            <div class="header__menu--left">
+                <a href="index.html" class="header__logo" aria-label="link go to homepage">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="48" viewBox="0 0 120 48">
+                        <g data-name="Group 3" transform="translate(7.837 8.916)">
+                            <rect class="rectangle" transform="translate(-7.837 -8.916)" fill="none" stroke="#fff" stroke-width="2" pathLength="1" width="120" height="48"/>
+                        </g>
+                        <text x="60" y="30" fill="#fff" font-size="14" text-anchor="middle" font-family="Arial, sans-serif">FIVE RIVERS</text>
+                    </svg>
+                </a>
+            </div>
+            <div class="header__menu--right">
+                <nav id="primary-nav" class="privary-navigation" role="navigation" aria-label="Primary Menu">
+                    <ul id="privary-navigation" class="privary-navigation__list">
+                        <li class='privary-navigation__item primary-nav-1'>
+                        </li>
+                        <li class='privary-navigation__item primary-nav-4'>
+                            <a href='about-us.html' class='nav-link' data-page="about-us">About Us</a>
+                        </li>
+                        <li class='privary-navigation__item primary-nav-2'>
+                            <a href='portfolio.html' class='nav-link' data-page="portfolio">Portfolio</a>
+                        </li>
+                        <li class='privary-navigation__item primary-nav-2'>
+                            <a href='services.html' class='nav-link' data-page="services">Services</a>
+                        </li>
+                        <li class='privary-navigation__item primary-nav-6'>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Toggle -->
+                <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- Contact Button -->
+                <div class="header__booking">
+                    <a class="btn-booking book-now" href="contact-us.html" data-fancybox>
+                        <span>CONTACT US</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-navigation" id="mobile-navigation">
+            <nav class="mobile-nav">
+                <ul class="mobile-nav__list">
+                    <li class="mobile-nav__item">
+                        <a href="index.html" class="mobile-nav__link">Home</a>
+                    </li>
+                    <li class="mobile-nav__item">
+                        <a href="portfolio.html" class="mobile-nav__link">Portfolio</a>
+                    </li>
+                    <li class="mobile-nav__item">
+                        <a href="services.html" class="mobile-nav__link">Services</a>
+                    </li>
+                    <li class="mobile-nav__item">
+                        <a href="about-us.html" class="mobile-nav__link">About Us</a>
+                    </li>
+                    <li class="mobile-nav__item">
+                        <a href="careers.html" class="mobile-nav__link">Careers</a>
+                    </li>
+                    <li class="mobile-nav__item">
+                        <a href="contact-us.html" class="mobile-nav__link">Contact</a>
+                    </li>
+                </ul>
+                
+                <!-- Mobile Contact Info -->
+                <div class="mobile-nav__contact">
+                    <a href="tel:XXX-XXX-XXXX" class="mobile-contact-phone">
+                        <span class="icon">📞</span>
+                        (XXX) XXX-XXXX
+                    </a>
+                    <a href="mailto:XXX@XXX.com" class="mobile-contact-email">
+                        <span class="icon">✉️</span>
+                        XXX@XXX.com
+                    </a>
+                </div>
+                
+                <!-- Mobile Social Links -->
+                <div class="mobile-nav__social">
+                    <a href="#" target="_blank" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M8.46 20v-8.54H5.77V8.85h2.69V6.69c0-2.67 1.63-4.12 4.01-4.12 1.14 0 2.12.08 2.4.12v2.78h-1.65c-1.29 0-1.54.61-1.54 1.51v1.98h3.08l-.4 2.61h-2.68V20h-2.62z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="#" target="_blank" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M10 1.8c2.67 0 2.99.01 4.04.06 1.02.05 1.58.22 1.95.37.49.19.84.42 1.21.79.37.37.6.72.79 1.21.15.37.32.93.37 1.95.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.05 1.02-.22 1.58-.37 1.95-.19.49-.42.84-.79 1.21-.37.37-.72.6-1.21.79-.37.15-.93.32-1.95.37-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-1.02-.05-1.58-.22-1.95-.37-.49-.19-.84-.42-1.21-.79-.37-.37-.6-.72-.79-1.21-.15-.37-.32-.93-.37-1.95-.05-1.05-.06-1.37-.06-4.04s.01-2.99.06-4.04c.05-1.02.22-1.58.37-1.95.19-.49.42-.84.79-1.21.37-.37.72-.6 1.21-.79.37-.15.93-.32 1.95-.37 1.05-.05 1.37-.06 4.04-.06zm0-1.8C7.28 0 6.94.01 5.88.06c-1.06.05-1.78.22-2.42.47-.65.25-1.21.58-1.76 1.13C1.15 2.21.82 2.77.57 3.42.32 4.06.15 4.78.1 5.84.05 6.9.04 7.24.04 10s.01 3.1.06 4.16c.05 1.06.22 1.78.47 2.42.25.65.58 1.21 1.13 1.76.55.55 1.11.88 1.76 1.13.64.25 1.36.42 2.42.47 1.06.05 1.4.06 4.16.06s3.1-.01 4.16-.06c1.06-.05 1.78-.22 2.42-.47.65-.25 1.21-.58 1.76-1.13.55-.55.88-1.11 1.13-1.76.25-.64.42-1.36.47-2.42.05-1.06.06-1.4.06-4.16s-.01-3.1-.06-4.16c-.05-1.06-.22-1.78-.47-2.42-.25-.65-.58-1.21-1.13-1.76-.55-.55-1.11-.88-1.76-1.13-.64-.25-1.36-.42-2.42-.47C13.1.05 12.76.04 10 .04z" fill="currentColor"/>
+                            <path d="M10 4.86c-2.84 0-5.14 2.3-5.14 5.14s2.3 5.14 5.14 5.14 5.14-2.3 5.14-5.14-2.3-5.14-5.14-5.14zm0 8.47c-1.84 0-3.33-1.49-3.33-3.33s1.49-3.33 3.33-3.33 3.33 1.49 3.33 3.33-1.49 3.33-3.33 3.33z" fill="currentColor"/>
+                            <circle cx="15.34" cy="4.66" r="1.2" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="#" target="_blank" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M4.48 2.83c0 .89-.73 1.61-1.61 1.61s-1.61-.72-1.61-1.61c0-.89.73-1.61 1.61-1.61s1.61.72 1.61 1.61zM1.35 6.2h3.23v10.43H1.35V6.2zm5.17 0h3.1v1.43h.04c.43-.82 1.49-1.68 3.07-1.68 3.28 0 3.89 2.16 3.89 4.97v5.72h-3.24v-5.07c0-1.21-.02-2.76-1.68-2.76-1.69 0-1.94 1.31-1.94 2.67v5.16H6.52V6.2z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Overlay -->
+            <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+        </div>
+    </header>
+    
+    <div id="start-content">
+        <!-- MAIN CONTENT -->
+        <main id="content">
+
+
+
+
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-section">
+        <div class="portfolio-grid">
+
+            <!-- Card 1 -->
+            <a href="https://www.marriott.com/en-us/hotels/mslbr-renaissance-shoals-resort-and-spa/overview/?cid=PMO_GLB0006CMH_GLE000F2OV_GLF000Z7RJ&gad_source=1&gad_campaignid=22147121658&gbraid=0AAAAA9jNJMzmrIdgUY2sdIYiD6-wPrikq&gclid=Cj0KCQjw9obIBhCAARIsAGHm1mTkIOXi9rIzFX4I0N6FXW5MQ7LAtV6pFdp3F3w_UwA-KgGJO2IJx88aArYdEALw_wcB" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Best Western Plus Tuscumbia.jpg" alt="Holiday Inn Express Gretna" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Best Western Plus (Muscle Shoals)</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Tuscumbia, AL</p>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="https://www.choicehotels.com/alabama/jasper/sleep-inn-hotels/al489?mc=smgogousxxlru&atrk=ru_AL489_184991852604_22742685726&gad_source=1&gad_campaignid=22742685726&gbraid=0AAAAAC8rhILxPOhP7hQ7Ko-_jIDs47vVV&gclid=Cj0KCQjwmYzIBhC6ARIsAHA3IkRCvcUjfeYVgSNz7l77YFK_uNWjCtgnGPdNGQurBGBgUNdBM6vTtjQaAjzZEALw_wcB" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Sleep Inn Jasper.jpg" alt="Hampton Inn" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Sleep Inn Jasper</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Jasper, AL</p>
+                </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="https://www.guestreservations.com/fairfield-inn-suites-by-marriott-phoenix-midtown/booking?utm_source=google&utm_medium=cpc&utm_campaign=850702498&gad_source=1&gad_campaignid=850702498&gbraid=0AAAAADiMQMaxud8VbunNqFmlv1ffRlNNp&gclid=Cj0KCQjwsPzHBhDCARIsALlWNG1swpB7YFg-TKuHiKdf071Bk97ro1HpsKGMPRxWKg7lqlCFtzykjnYaArCMEALw_wcB&ctTriggered=true" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Fairfield Inn Suites Phoenix Midtown.png" alt="Split Mountain Motel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Fairfield Inn & Suites Midtown</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Phoenix, AZ</p>
+                </div>
+            </a>
+
+            <!-- Card 4 -->
+            <a href="https://www.wyndhamhotels.com/es-xl/laquinta/mesa-arizona/la-quinta-phoenix-mesa-west/overview" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/La Quinta Inn & Suites Mesa West.jpg" alt="Boutique Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">La Quinta Inn & Suites, Mesa West</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Mesa, AZ</p>
+                </div>
+            </a>
+
+            <!-- Card 5 -->
+            <a href="https://www.wyndhamhotels.com/es-xl/laquinta/tempe-arizona/la-quinta-inn-phoenix-sky-harbor-airport/overview" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/La Quinta Inn Phoenix Sky Harbor Airport.png" alt="Mountain Resort" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">La Quinta Inn, Phoenix Sky Harbor Airport</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Phoenix, AZ</p>
+                </div>
+            </a>
+
+            <!-- Card 6 -->
+            <a href="https://www.wyndhamhotels.com/es-xl/laquinta/phoenix-arizona/la-quinta-phoenix-chandler/overview" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/La Quinta Inn & Suites Chandler Phoenix.png" alt="City Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">La Quinta Inn & Suites </h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Phoenix, AZ</p>
+                </div>
+
+            <!--ard 7 -->
+            <a href="https://www.bestwestern.com/en_US/book/hotels-in-clifton/best-western-grande-river-inn-suites/propertyCode.06153.html" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Best Western Grande River inn Suites.jpg" alt="City Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Best Western Grand River inn & Suites</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Clifton, CO</p>
+                </div>
+
+            <!-- Card 8 -->
+            <a href="https://www.bestwestern.com/es_ES/book/hotels-in-hudson/best-western-plus-hudson-hotel-suites/propertyCode.06186.html" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Best Western Hudson.jpg" alt="Holiday Inn Express Gretna" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Best Western Hudson</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Hudson, AZ</p>
+                </div>
+            </a>
+
+            <!-- Card 9 -->
+            <a href="https://www.ihg.com/candlewood/hotels/us/en/greeley/gxygr/hoteldetail" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Candlewood Suites , Greeley.jpg" alt="Hampton Inn" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Candlewood Suites, Greeley</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Greeley, CO</p>
+                </div>
+            </a>
+
+            <!-- Card 10 -->
+            <a href="https://www.ihg.com/candlewood/hotels/us/en/thornton/denyo/hoteldetail" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Candlewood Suites Thornton.jpg" alt="Split Mountain Motel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Candlewood Suites Thornton</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Thornton, CO</p>
+                </div>
+            </a>
+
+            <!-- Card 11 -->
+            <a href="https://www.ihg.com/candlewood/hotels/us/en/fort-collins/fclcw/hoteldetail" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Candlewood Suites Ft Collins.jpg" alt="Boutique Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Candlewood Suites Ft Collins</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Fort Collins, CO</p>
+                </div>
+            </a>
+
+            <!-- Card 12 -->
+            <a href="https://www.ihg.com/candlewood/hotels/us/es/craig/cigcw/hoteldetail" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Candlewood Craig.png" alt="Mountain Resort" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Candlewood Craig</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Craig, CO</p>
+                </div>
+            </a>
+
+            <!-- Card 13 -->
+            <a href="https://www.marriott.com/en-us/hotels/rqxfi-fairfield-inn-and-suites-burlington/overview/" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Fairfield Inn Suites Burlington.png" alt="City Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Fairfield Inn & Suites Burlington</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Burlington, CO</p>
+                </div>
+
+            <!--card 14 -->
+            <a href="https://www.wyndhamhotels.com/es-xl/microtel/pueblo-colorado/microtel-inn-and-suites-pueblo/overview" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Microtel Inn & Suites Pueblo.jpg" alt="City Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Microtel Inn & Suites, Pueblo</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Pueblo, CO</p>
+                </div>
+
+            <!-- Card 15 -->
+            <a href="https://www.wyndhamhotels.com/es-xl/laquinta/sarasota-florida/la-quinta-sarasota-downtown/overview" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/La Quinta Inn & Suites, Sarasota Downtown.jpg" alt="Holiday Inn Express Gretna" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">La Quinta Inn & Suites, Sarasota Downtown</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Sarasota, FL</p>
+                </div>
+            </a>
+
+            <!-- Card 16 -->
+            <a href="https://www.wyndhamhotels.com/laquinta/tampa-florida/la-quinta-usf-near-busch-gardens/overview" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/La quinta Inn suites USF tampa.jpg" alt="Hampton Inn" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">La Quinta Inn & Suites, USF Tampa</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Tampa, FL</p>
+                </div>
+            </a>
+
+            <!-- Card 17 -->
+            <a href="https://www.marriott.com/en-us/hotels/tpabr-courtyard-tampa-brandon/overview/" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Courtyard Tampa Brandon.jpg" alt="Split Mountain Motel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Courtyard Tampa - Brandon</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Tampa, FL</p>
+                </div>
+            </a>
+
+            <!-- Card 18 -->
+            <a href="https://www.marriott.com/en-us/hotels/tpafi-fairfield-inn-and-suites-tampa-brandon/overview/" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Fairfield Inn Tampa  Brandon.jpg" alt="Boutique Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Fairfield Inn Tampa - Brandon</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Tampa, FL</p>
+                </div>
+            </a>
+
+            <!-- Card 19 -->
+            <a href="https://www.choicehotels.com/georgia/emerson/sleep-inn-hotels/ga945?gad_campaignid=22199987453&gad_source=0&gal=undefined&gclid=Cj0KCQjwmYzIBhC6ARIsAHA3IkROiDh84k23t5G4lcjDXJvjK8Q3PMyBTpxg4GrKqUeMu7stYQXlFaAaApRREALw_wcB&gmp=MetaAd&gpa=GPADSAPR1&hmGUID=f2007b50-d9e2-4149-1001-56fb365826b5&mc=HAGOHPUS&meta=PMFGPADUSSAPR1_GA945_localuniversal_US_1_desktop_2025-11-11_default_22199987453__paid&pmf=hpagoogle&product=localuniversal&adults=2&checkInDate=2025-11-11&checkOutDate=2025-11-12&ratePlanCode=SAPR1" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Sleep Inn Mainstay Suites Cartersville Emerson.jpg" alt="Mountain Resort" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Sleep Inn & Mainstay Suites Cartersville - Emerson</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Emerson, GA</p>
+                </div>
+            </a>
+
+            <!-- Card 20 -->
+            <a href="https://www.wyndhamhotels.com/es-xl/wingate/brunswick-georgia/wingate-brunswick-ga-i-95/overview" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Wingate Brunswick.jpg" alt="City Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Wingate, Brunswick </h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Brunswick, GA</p>
+                </div>
+
+            <!--card 21 -->
+            <a href="https://www.choicehotels.com/idaho/idaho-falls/comfort-inn-hotels/id024?mc=llgoxxpx" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Comfort Inn Idaho Falls.jpg" alt="City Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Comfort Inn, Idaho Falls</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Idaho falls, ID</p>
+                </div>
+
+            <!-- Card 22 -->
+            <a href="https://www.wyndhamhotels.com/es-xl/super-8/pocatello-idaho/super-8-pocatello/overview" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Super 8 Pocatello.jpg" alt="Holiday Inn Express Gretna" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Super 8 Pocatello</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Pocatello, ID</p>
+                </div>
+            </a>
+
+            <!-- Card 23 -->
+            <a href="https://www.ihg.com/holidayinnexpress/hotels/es/es/nevada/nvdmo/hoteldetail" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Holiday Inn Express Suites Nevada MO.jpg" alt="Hampton Inn" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Holiday Inn Express & Suites, Nevada</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Nevada, MO</p>
+                </div>
+            </a>
+
+            <!-- Card 24 -->
+            <a href="https://www.ihg.com/holidayinnexpress/hotels/es/es/chanute/ppfks/hoteldetail" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Holiday Inn Express  Suites Chanute.jpg" alt="Split Mountain Motel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Holiday Inn Express & Suites, Chanute </h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Chanute, KS</p>
+                </div>
+            </a>
+
+            <!-- Card 25 -->
+            <a href="https://www.choicehotels.com/nebraska/sidney/comfort-inn-hotels/ne156?mc=llgoxxpx" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Comfort Inn Suites Sidney.jpg" alt="Boutique Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Comfort Inn & Suites, Sidney</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Sidney, NE</p>
+                </div>
+            </a>
+
+            <!-- Card 26 -->
+            <a href="https://www.marriott.com/en-us/hotels/tccfi-fairfield-inn-and-suites-tucumcari/overview/" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Fairfield Inn Suites Tucumcari.jpg" alt="Mountain Resort" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Fairfield Inn & Suites, Tucumcari</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Tucumcari, NM</p>
+                </div>
+            </a>
+
+            <!-- Card 27 -->
+            <a href="https://www.wyndhamhotels.com/es-xl/laquinta/albuquerque-new-mexico/la-quinta-albuquerque-west/overview" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/La Quinta Inn Suites Albuquerque West.jpg" alt="City Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">La Quinta Inn & Suites, Albuquerque West</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Albuquerque, NM</p>
+                </div>
+
+            <!--card 28 -->
+            <a href="https://www.marriott.com/es/search/findHotels.mi?pageType=advanced&searchType=InCity&destinationAddress.latitude=40.63436&destinationAddress.longitude=-111.83345&destinationAddress.destination=Fairfield+Inn+Suites+Salt+Lake+City+Cottonwood&nst=paid&cid=PAI_GLB0004N15_GLE000ARON_GLF000M11O&ppc=ppc&pId=rztbppc&gclsrc=aw.ds&gad_source=1&gad_campaignid=10520901359&gbraid=0AAAAADilnifNc_HWL9G9NvKAap-g12XnT&gclid=Cj0KCQjw9obIBhCAARIsAGHm1mQaIfpDbsZMlFIAEKxryMgBZYvlGKnWRPv8os75zsMnG9VGRKSDS94aAqnqEALw_wcB&deviceType=desktop-web&view=list" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Fairfield Inn Suites SLC Downtown.jpg" alt="City Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Fairfield Inn & Suites, SLC Downtown</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Salt Lake City, UT</p>
+                </div>
+
+            <!-- Card 29 -->
+            <a href="https://www.marriott.com/search/findHotels.mi?searchType=InCity&destinationAddress.city=Layton&destinationAddress.stateProvince=UT&destinationAddress.country=US&marriottBrands=FI&showMore=true&fromDate=today&toDate=tomorrow&flexibleDateSearch=false&nst=paid&cid=PAI_GLB0004Z6W_GLE000BJVU_GLF000OHNW&ppc=ppc&pId=rztbppc&gclsrc=aw.ds&gad_source=1&gad_campaignid=10704695029&gbraid=0AAAAADilnif1RwrYQFh5R5nDwH0JYFkwh&gclid=Cj0KCQjw9obIBhCAARIsAGHm1mQK8-Ih8euxfBS14czWJB_HeeCWNerjh4FoyVnNSuBrdXTz1x_h28AaAifaEALw_wcB&deviceType=desktop-web&view=list" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Fairfield Inn Layton.jpg" alt="Holiday Inn Express Gretna" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Fairfield Inn Layton</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Layton, UT</p>
+                </div>
+            </a>
+
+            <!-- Card 30 -->
+            <a href="https://www.guestreservations.com/hampton-inn-brigham-city-utah/booking?utm_source=google&utm_medium=cpc&utm_campaign=836181583&gad_source=1&gad_campaignid=836181583&gbraid=0AAAAADiMQMZ4FqkbfG6MUm4YviRr0enWI&gclid=Cj0KCQjw9obIBhCAARIsAGHm1mT8u2hpETkQU-qkOEmmAQuiNoxjzVkb7bsGi9kj82LdS4oX8mdY05kaAollEALw_wcB" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Hampton Inn Suites Brigham City.jpg" alt="Hampton Inn" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Hampton Inn & Suites, Brigham City</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Brigham city, UT</p>
+                </div>
+            </a>
+
+            <!-- Card 31 -->
+            <a href="https://www.guestreservations.com/holiday-inn-express-suites-brigham-city-north-utah/booking?utm_source=google&utm_medium=cpc&utm_campaign=989676943&gad_source=1&gad_campaignid=989676943&gbraid=0AAAAADiMQMaEPU99qiY4LMwYfh8rm5LAT&gclid=Cj0KCQjw9obIBhCAARIsAGHm1mTmB2JXjRVPHPPcFyh8YArSRFHZ-RGVZzJp63izz4bWbESwjkm2sAkaAjZ3EALw_wcB" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Hampton Inn Suites Brigham City.jpg" alt="Split Mountain Motel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Holiday Inn Express & Suites, Brigham City</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Brigham city, UT</p>
+                </div>
+            </a>
+
+            <!-- Card 32 -->
+            <a href="https://www.ihg.com/holidayinn/hotels/us/en/salt-lake-city/slcff/hoteldetail" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Holiday Inn Express Suites SLC Airport.png" alt="Boutique Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Holiday Inn Express & Suites, SLC Airport</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Salt Lake City, UT</p>
+                </div>
+            </a>
+
+            <!-- Card 33 -->
+            <a href="https://www.ihg.com/utah-united-states?filter=brandholidayinn" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Holiday Inn Express Suites Tooele.jpg" alt="Mountain Resort" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Holiday Inn Express & Suites, Tooele</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Tooele, UT</p>
+                </div>
+            </a>
+
+            <!-- Card 34 -->
+            <a href="https://www.wyndhamhotels.com/es-xl/laquinta/orem-utah/la-quinta-north-orem/overview" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/La Quinta Orem.jpg" alt="City Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">La Quinta Orem</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Orem, UT</p>
+                </div>
+
+            <!--card 35 -->
+            <a href="https://www.wyndhamhotels.com/laquinta/salt-lake-city-utah/la-quinta-salt-lake-city-airport/overview?CID=LC:6ysy27krtpcrqev:53455&iata=00093796" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/La Quinta Inn Suites Salt Lake City Airport.jpg" alt="City Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">La Quinta Inn & Suites, Salt Lake City Airport</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Salt Lake City, UT</p>
+                </div>
+
+            <!-- Card 36 -->
+            <a href="https://www.wyndhamhotels.com/es-xl/laquinta/layton-utah/la-quinta-salt-lake-city-layton/overview" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/La quinta inn Layton.jpg" alt="Holiday Inn Express Gretna" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">La Quinta Inn Layton</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Layton, UT</p>
+                </div>
+            </a>
+
+            <!-- Card 37 -->
+            <a href="https://www.ihg.com/holidayinnexpress/hotels/us/en/south-hill/ricsh/hoteldetail/rooms" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Holiday Inn Express Suites South Hill.png" alt="Hampton Inn" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Holiday Inn Express & Suites South Hill</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">South Hill, VA</p>
+                </div>
+            </a>
+
+            <!-- Card 38 -->
+            <a href="https://www.ihg.com/holidayinnexpress/hotels/es/es/prosser/pscpr/hoteldetail" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/Holiday Inn Express Suites Prosser.jpg" alt="Split Mountain Motel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Holiday Inn Express & Suites Prosser</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Yakima, WA</p>
+                </div>
+            </a>
+
+            <!-- Card 39 -->
+            <a href="https://www.wyndhamhotels.com/laquinta/cheyenne-wyoming/la-quinta-inn-cheyenne/overview" target="_blank" class="portfolio-card">
+                <div class="card-image-wrapper">
+                    <img src="assets/images/La quinta inn cheyenne.jpg" alt="Boutique Hotel" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">La Quinta Inn, Cheyenne</h3>
+                    <p class="card-subtitle" style="color:#0e0c0c;">Cheyenne, WY</p>
+                </div>
+            </a>
+
+            </a>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <img id="modalImage" src="" alt="" class="modal-image">
+            <div class="modal-body">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <p id="modalSubtitle" class="modal-subtitle"></p>
+                <p id="modalDescription" class="modal-description"></p>
+                <a id="modalLink" href="#" target="_blank" class="modal-link">Ver Proyecto Completo →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer cargado dinámicamente -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="assets/js/component-loader.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>
