@@ -1,17 +1,20 @@
 <!-- HEADER COMPONENT -->
 <header id="header" class="header">
     <div class="header__menu container">
-        <div class="header__menu--left">
-            <a href="index.html" class="header__logo" aria-label="link go to homepage">
+       <div class="header__menu--left" style="display: flex; align-items: center; gap: 15px;">
+            <a href="index.html" aria-label="link go to homepage">
+                <img src="assets/images/logon.png" alt="Five Rivers Logo" style="height: 50px; width: auto;">
+            </a>
+            <!--<a href="index.html" class="header__logo" aria-label="link go to homepage">
                 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="48" viewBox="0 0 120 48">
                     <g data-name="Group 3" transform="translate(7.837 8.916)">
-                        <!--LOGO-->>
                         <rect class="rectangle" transform="translate(-7.837 -8.916)" fill="none" stroke="#fff" stroke-width="2" pathLength="1" width="120" height="48"/>
                     </g>
-                    <text x="60" y="30" fill="#fff" font-size="14" text-anchor="middle" font-family="Arial, sans-serif">HOME</text>
+                <text x="60" y="30" fill="#fff" font-size="14" text-anchor="middle" font-family="Arial, sans-serif">FIVE RIVERS</text>
                 </svg>
-            </a>
+            </a>-->
         </div>
+
         <div class="header__menu--right">
             <nav id="primary-nav" class="privary-navigation" role="navigation" aria-label="Primary Menu">
                 <ul id="privary-navigation" class="privary-navigation__list">
@@ -19,6 +22,9 @@
                     </li>
                     <li class='privary-navigation__item primary-nav-4'>
                         <a href='about-us.html' class='nav-link' data-page="about-us">About Us</a>
+                    </li>
+                    <li class='privary-navigation__item primary-nav-2'>
+                        <a href='portfolio.html' class='nav-link' data-page="services">Portfolio</a>
                     </li>
                     <li class='privary-navigation__item primary-nav-2'>
                         <a href='services.html' class='nav-link' data-page="services">Services</a>
@@ -37,7 +43,7 @@
             
             <!-- Contact Button -->
             <div class="header__booking">
-                <a class="btn-booking book-now" href="contact-us.html" data-fancybox>
+                <a class="btn-booking book-now" href="contact-us.html">
                     <span>CONTACT US</span>
                 </a>
             </div>

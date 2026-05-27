@@ -156,9 +156,7 @@ p {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    /* Background manejado por custom.css para comportamiento dinámico */
 }
 
 .header__menu {
@@ -203,10 +201,17 @@ p {
     transition: color 0.3s ease;
 }
 
+.privary-navigation__item.active a,
+.privary-navigation__item a:hover {
+    color: white !important;
+}
+
+/*
 .privary-navigation__item a:hover,
 .privary-navigation__item.active a {
     color: #2c5aa0;
 }
+*/
 
 /* ===== MAIN CONTENT ===== */
 #content {
@@ -963,5 +968,196 @@ p {
     
     .portfolio-items {
         grid-template-columns: 1fr;
+    }
+}
+.hero-stats {
+    position: relative;
+    padding: 0;
+    margin: 80px 0 0 0;
+    background-color: #e8eff5;
+}
+
+.stats-container-top {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background-color: #4a4a4a;
+    padding: 50px 0;
+    gap: 0;
+    max-width: 1050px;
+    width: 90%;
+    z-index: 10;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.stat-box-dark {
+    flex: 1;
+    text-align: center;
+    padding: 30px 50px;
+    border-right: 2px solid #5a5a5a;
+}
+
+.stat-box-dark:last-child {
+    border-right: none;
+}
+
+.stat-box-dark h3 {
+    font-size: 4rem;
+    color: #5b9bd5;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.stat-box-dark p {
+    font-size: 0.75rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 600;
+}
+
+.stats-map-container {
+    position: relative;
+    width: 100%;
+    padding-top: 60px;
+}
+
+.stats-map {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------- RESTAURACIÓN: Hero Stats original + fondo blanco ---------- */
+
+/* Forzar que la sección del mapa sea blanca */
+.hero-stats {
+    position: relative;
+    padding: 0;
+    margin: 80px 0 0 0;
+    background-color: #ffffff !important; /* fondo blanco forzado */
+}
+
+/* Contenedor superior con las cajas (restaurado) */
+.stats-container-top {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background-color: #4a4a4a;   /* caja gris oscuro original */
+    padding: 50px 0;
+    gap: 0;
+    max-width: 1050px;
+    width: 90%;
+    z-index: 10;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Caja individual original (restaurado) */
+.stat-box-dark {
+    flex: 1;
+    text-align: center;
+    padding: 30px 50px;
+    border-right: 2px solid #5a5a5a;
+    background: transparent; /* asegurar transparencia interna */
+}
+
+/* Quitar border-right en la última caja */
+.stat-box-dark:last-child {
+    border-right: none;
+}
+
+/* Tipografía de los números (restaurado) */
+.stat-box-dark h3 {
+    font-size: 4rem;
+    color: #5b9bd5;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Tipografía del texto de abajo (restaurado) */
+.stat-box-dark p {
+    font-size: 0.75rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Si hay contenedor de imagen antiguo: mantener pero no usado ahora */
+.stats-map-container {
+    position: relative;
+    width: 100%;
+    padding-top: 60px;
+}
+
+/* Si usas <img class="stats-map"> (no necesario si usas background) */
+.stats-map {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------- Estilos del background del mapa (asegurar ruta correcta) ---------- */
+/* Ajusta la ruta si tu CSS está en assets/css/ y la imagen en assets/images/ */
+.stats-map-bg {
+    width: 100%;
+    min-height: 80vh; /* puedes ajustar (60vh, 70vh) según quieras tamaño) */
+    background-image: url("../images/Map3.png"); /* ruta relativa correcta */
+    background-size: contain;      /* mantiene la imagen completa centrada */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* evita problemas en móviles */
+    background-color: #ffffff;     /* blanco de respaldo */
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+}
+
+/* Responsive: cajas apiladas en móvil (restaurado comportamiento original) */
+@media (max-width: 768px) {
+    .hero-stats {
+        margin-top: 100px;
+    }
+
+    .stats-container-top {
+        flex-direction: column;
+        padding: 30px 0;
+        width: 85%;
+        top: -100px;
+    }
+
+    .stat-box-dark {
+        border-right: none;
+        border-bottom: 2px solid #5a5a5a;
+        padding: 25px 20px;
+    }
+
+    .stat-box-dark:last-child {
+        border-bottom: none;
+    }
+
+    .stat-box-dark h3 {
+        font-size: 3rem;
+    }
+
+    .stats-map-bg {
+        min-height: 70vh;
+    }
+
+    .stats-map-container {
+        padding-top: 40px;
     }
 }

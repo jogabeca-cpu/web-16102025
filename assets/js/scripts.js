@@ -31,31 +31,85 @@ document.addEventListener('DOMContentLoaded', function() {
  * Navigation functionality
  */
 function initializeNavigation() {
-    const header = document.getElementById('header');
     const navLinks = document.querySelectorAll('.privary-navigation__item a');
-    
-    // Header scroll effect
-    if (header) {
+
+    // Función para inicializar el scroll del header
+    function initHeaderScroll() {
+        const header = document.getElementById('header') || document.querySelector('.header');
+
+        if (!header) {
+            // Si el header no existe aún, esperar y reintentar
+            console.log('Esperando a que el header se cargue...');
+            setTimeout(initHeaderScroll, 100);
+            return;
+        }
+
+        // Calcular la altura de la primera sección hero
+        const heroSection = document.querySelector('.portfolio-hero') || document.querySelector('section:first-of-type');
+        const scrollThreshold = heroSection ? heroSection.offsetHeight - 100 : 600;
+
+        let ticking = false;
+
+        // Set initial transparent state
+        header.classList.add('transparent');
+        console.log('Header inicializado con clase transparent');
+        console.log('Scroll threshold configurado en:', scrollThreshold, 'px');
+
+        // Optimized scroll handler using requestAnimationFrame
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
             }
-        });
+        }, { passive: true });
+
+        function handleScroll() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > scrollThreshold) {
+                // Usuario ha pasado la sección hero - mostrar fondo sólido
+                if (!header.classList.contains('scrolled')) {
+                    header.classList.remove('transparent');
+                    header.classList.add('scrolled');
+                    console.log('Header cambió a scrolled (negro) - scroll:', scrollTop);
+                }
+            } else {
+                // Usuario está en la sección hero - mostrar transparente
+                if (header.classList.contains('scrolled')) {
+                    header.classList.remove('scrolled');
+                    header.classList.add('transparent');
+                    console.log('Header cambió a transparent - scroll:', scrollTop);
+                }
+            }
+        }
+
+        // Check initial scroll position on load
+        handleScroll();
     }
-    
+
+    // Escuchar evento de componentes cargados
+    document.addEventListener('componentsLoaded', function() {
+        console.log('Componentes cargados, iniciando header scroll');
+        initHeaderScroll();
+    });
+
+    // También intentar iniciar inmediatamente
+    initHeaderScroll();
+
     // Active navigation highlighting
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage || 
+        if (linkPage === currentPage ||
             (currentPage === '' && linkPage === 'index.html') ||
             (currentPage === 'index.html' && linkPage === '/')) {
             link.closest('.privary-navigation__item').classList.add('active');
         }
     });
-    
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {

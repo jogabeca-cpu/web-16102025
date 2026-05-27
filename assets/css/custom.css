@@ -1270,12 +1270,12 @@
     .header__menu {
         padding: 10px 15px;
     }
-    
+
     .header__logo svg {
         width: 100px;
         height: 40px;
-    }
-    
+    }   
+
     .btn-booking {
         padding: 8px 15px;
         font-size: 12px;
@@ -1291,6 +1291,25 @@
 /* Active navigation state */
 .privary-navigation__item.active a {
     color: #2c5aa0;
+}
+
+/* Hacer que el mapa se mezcle con el fondo */
+.hero-stats {
+    background-color: #fff;
+}
+
+.stats-map{
+    width: 100%;
+    height: auto;
+    mix-blend-mode: darken; /* Mezcla solo los colores oscuros */
+    opacity: 0.9;
+}
+
+.stats-map {
+    width: 100%;
+    height: auto;
+    opacity: 0.85;
+    filter: brightness(1.05) contrast(0.95);
 }
 
 /* Modificar el slider existente */
@@ -1990,21 +2009,25 @@
 
 .hero-section {
     display: grid;
-    grid-template-columns: 40% 60%; /* 🔹 Azul = 40%, Imagen = 60% */
+    grid-template-columns: 40% 60%; /* Columna izquierda 40%, Columna derecha (imagen) 60% */
     width: 100%;
     align-items: stretch;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    min-height: 500px;
 }
 
-/* 🔹 Cuadro azul más corto */
+/* 🔹 Columna izquierda - DIVIDIDA EN DOS FILAS (65% azul + 35% blanco) */
 .hero-content {
-    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    padding: 60px 50px;
+    background: linear-gradient(135deg, #1e3d6f 0%, #2c5aa0 100%) 0% 0% / 100% 65% no-repeat,
+                white 0% 65% / 100% 35% no-repeat;
+    padding: 140px 50px 0 50px; /* Padding superior para el navbar */
     color: white;
-    height: 400px; /* más corto */
+    position: relative;
 }
 
 .hero-label {
@@ -2079,11 +2102,16 @@
     opacity: 0.1;
 }
 
-/* About Content Section */
+/* About Content Section - OVERLAY BLANCO SOBRE EL HERO */
 .about-content {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 40px;
+    margin: -80px auto 0 auto; /* Margin negativo para que se solape con el hero */
+    padding: 60px 80px;
+    background: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    position: relative;
+    z-index: 10;
     text-align: center;
 }
 
@@ -2092,6 +2120,7 @@
     line-height: 1.8;
     color: #374151;
     text-align: justify;
+    margin-bottom: 0;
 }
 
 /* ================================
@@ -2134,11 +2163,13 @@
     }
 
     .about-content {
-        padding: 60px 25px;
+        margin: -60px 20px 0 20px; /* Ajuste de margen para móviles */
+        padding: 40px 30px;
     }
 
     .about-content p {
         font-size: 16px;
+        text-align: left; /* Mejor legibilidad en móvil */
     }
 }
 
@@ -2371,4 +2402,320 @@
         width: 10px;
         height: 10px;
     }
+}
+
+/* ================================
+   FIX DEFINITIVO SECCIÓN DEL MAPA
+   ================================ */
+
+.hero-stats {
+    background: #ffffff !important;   /* fondo blanco REAL */
+    padding: 40px 0 !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+/* Quitar el gris del wrapper padre */
+.hero-stats *,
+.hero-stats::before,
+.hero-stats::after {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* La imagen del mapa */
+.stats-map-bg {
+    width: 100%;
+    height: 380px; /* Ajusta el tamaño como quieras */
+    background-image: url("../images/Map3.png") !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    margin: 0 auto !important;
+    filter: none !important;
+    border: none !important;
+}
+
+/* Mantener tus cuadros intactos */
+.stats-container-top .stat-box-dark {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+/* Imagen del mapa más pequeña y súper centrada */
+.stats-map-bg {
+    width: 100%;
+    height: 250px; /* antes 380px — más pequeño */
+    background-image: url("../images/Map3.png") !important;
+    background-size: 40% !important;  /* más pequeño y proporcional */
+    background-repeat: no-repeat !important;
+    background-position: center center !important; /* centrado real */
+    margin: 0 auto !important;
+    border: none !important;
+    filter: none !important;
+    display: block;
+}
+
+FIX PARA LOGO/BOTÓN PRINCIPAL
+   ================================ */
+
+/* Prevenir pérdida de estilo en el logo */
+.header__logo,
+.header__logo a,
+.header__logo a:link,
+.header__logo a:visited,
+.header__logo a:hover,
+.header__logo a:active,
+.header__logo a:focus {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Si tienes texto en el logo */
+.header__logo svg,
+.header__logo svg text,
+.header__logo svg path {
+    fill: #ffffff !important;
+    opacity: 1 !important;
+}
+
+.header__logo:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    opacity: 0.9 !important;
+}
+
+/* Prevenir que los enlaces cambien el estado del logo */
+a.header__logo,
+a.header__logo:link,
+a.header__logo:visited,
+a.header__logo:active,
+a.header__logo:focus {
+    outline: none !important;
+    color: inherit !important;
+}
+
+/* Si usas un enlace wrapper alrededor del logo */
+header a[href="index.html"],
+header a[href="/"],
+header a[href="#home"] {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+header a[href="index.html"]:visited,
+header a[href="/"]:visited,
+header a[href="#home"]:visited {
+    color: #ffffff !important;
+}
+
+/* Asegurar visibilidad del logo en scroll */
+.header.scrolled .header__logo,
+.header.scrolled .header__logo a {
+    color: #ffffff !important;
+}
+
+/* Si el logo desaparece completamente, forzar display */
+.header__logo,
+.header__logo * {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* ================================
+   GLOBAL PAGE LAYOUT - SIN ESPACIO BLANCO ARRIBA
+   ================================ */
+
+/* Eliminar márgenes y paddings globales */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#start-content,
+#content {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Primera sección de cada página debe empezar desde arriba */
+.top-content,
+.portfolio-hero,
+section:first-of-type {
+    margin-top: 0 !important;
+    padding-top: 150px !important; /* Espacio para el navbar */
+}
+
+/* About-us hero section NO necesita padding-top porque lo maneja internamente */
+body#about-us .hero-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Excluir hero-section de la regla global */
+section:first-of-type.hero-section {
+    padding-top: 0 !important;
+}
+
+/* ================================
+   HEADER SCROLL ANIMATION (Enhanced)
+   ================================ */
+
+/* Header position and transition */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+/* Estado inicial - Transparente con letras blancas */
+.header.transparent {
+    background-color: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+.header.transparent .nav-link,
+.header.transparent .privary-navigation__item a {
+    color: #ffffff !important;
+}
+
+/* Botón de contacto - Estado inicial: azul con letras blancas */
+.header.transparent .btn-booking {
+    background-color: #2c5aa0 !important;
+    color: #ffffff !important;
+    border: 2px solid #2c5aa0 !important;
+}
+
+.header.transparent .btn-booking:hover {
+    background-color: #1e3d6f !important;
+    border-color: #1e3d6f !important;
+}
+
+.header.transparent .mobile-menu-toggle span {
+    background-color: #ffffff !important;
+}
+
+/* Estado al hacer scroll - Fondo NEGRO SÓLIDO con letras blancas */
+.header.scrolled {
+    background-color: #000000 !important; /* Negro sólido 100% */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: none;
+}
+
+.header.scrolled .nav-link,
+.header.scrolled .privary-navigation__item a {
+    color: #ffffff !important;
+}
+
+/* Botón de contacto - Al hacer scroll: fondo negro con borde blanco */
+.header.scrolled .btn-booking {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+.header.scrolled .btn-booking:hover {
+    background-color: #2c5aa0 !important;
+    border-color: #2c5aa0 !important;
+}
+
+/* Animación de enlaces del menú al hacer scroll */
+.header.scrolled .privary-navigation__item {
+    animation: slideInDown 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+.header.scrolled .privary-navigation__item:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.header.scrolled .privary-navigation__item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.header.scrolled .privary-navigation__item:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.header.scrolled .privary-navigation__item:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.header.scrolled .privary-navigation__item:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.header.scrolled .privary-navigation__item:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+/* Animación de slide + fade para los enlaces */
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Transición suave para el logo */
+.header__logo {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header.scrolled .header__logo {
+    transform: scale(0.95);
+}
+
+/* Transición del menú */
+.header__menu {
+    transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduce el padding al hacer scroll */
+.header.scrolled .header__menu {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Botón de contacto con animación */
+.header__booking {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header.scrolled .header__booking {
+    transform: scale(0.95);
+}
+
+/* Enlaces del navbar con efecto hover mejorado */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2c5aa0;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }

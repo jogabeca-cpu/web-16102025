@@ -1127,3 +1127,37 @@ function initializeSuccessPressAnimations() {
 document.addEventListener('DOMContentLoaded', function() {
     initializeSuccessPressAnimations();
 });
+
+// Prevenir que el logo pierda estilo al hacer clic
+document.addEventListener('DOMContentLoaded', function() {
+    const logo = document.querySelector('.header__logo');
+    const logoLink = document.querySelector('.header__logo a, a.header__logo');
+    
+    if (logoLink) {
+        logoLink.addEventListener('click', function(e) {
+            // Mantener estilos del logo después del clic
+            setTimeout(() => {
+                if (logo) {
+                    logo.style.color = '#ffffff';
+                    logo.style.visibility = 'visible';
+                    logo.style.opacity = '1';
+                }
+                if (logoLink) {
+                    logoLink.style.color = '#ffffff';
+                    logoLink.style.visibility = 'visible';
+                }
+            }, 10);
+        });
+    }
+    
+    // Prevenir pérdida de estilo en cualquier navegación
+    const allLogoElements = document.querySelectorAll('.header__logo, .header__logo *, .logo-text');
+    allLogoElements.forEach(el => {
+        el.addEventListener('click', function() {
+            setTimeout(() => {
+                this.style.visibility = 'visible';
+                this.style.opacity = '1';
+            }, 10);
+        });
+    });
+});

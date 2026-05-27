@@ -8,13 +8,13 @@ class ComponentLoader {
     async loadComponents() {
         try {
             // Cargar header si existe el contenedor
-            const headerContainer = document.getElementById('header-container');
+            const headerContainer = document.getElementById('header-container') || document.getElementById('header-placeholder');
             if (headerContainer) {
                 await this.loadComponent('components/header.html', headerContainer);
             }
 
             // Cargar footer si existe el contenedor
-            const footerContainer = document.getElementById('footer-container');
+            const footerContainer = document.getElementById('footer-container') || document.getElementById('footer-placeholder');
             if (footerContainer) {
                 await this.loadComponent('components/footer.html', footerContainer);
             }
